@@ -27,7 +27,7 @@ namespace HairSalonTests
       //Arrange
       string clientName = "Veronika";
       //Act
-      Client newClient = new Client(clientName);
+      Client newClient = new Client(clientName, 1);
       //Assert
       Assert.AreEqual(typeof(Client), newClient.GetType());
     }
@@ -37,12 +37,47 @@ namespace HairSalonTests
     {
       //Arrange
       string clientName = "Veronika";
-      Client newClient = new Client(clientName);
+      Client newClient = new Client(clientName, 1);
       //Act
       string result = newClient.GetClientName();
       //Assert
       Assert.AreEqual(clientName, result);
     }
+
+    [TestMethod]
+    public void SetClientName_RenameClientName_String()
+    {
+      //Arrange
+      string clientName = "Veronika";
+      Client newClient = new Client(clientName, 1);
+      //Act
+      string updatedName = "Angelina";
+      newClient.SetClientName(updatedName);
+      string result = newClient.GetClientName();
+      //Assert
+      Assert.AreEqual(updatedName, result);
+    }
+
+    [TestMethod]
+    public void GetId_ReturnsClientId_Int()
+    {
+      //Arrange
+      int clientId = 1;
+      Client newClient = new Client("", clientId);
+      //Act
+      int result = newClient.GetId();
+      //Assert
+      Assert.AreEqual(clientId, result);
+    }
+
+    // [TestMethod]
+    // public void GetAll_ReturnsEmptyListFromDatabase_ClientList()
+    // {
+    //   //Arrange
+    //   List<Client> newList = new List<Client>{};
+    //   //Act
+    //   List<Client> result = Client.GetAll();
+    // }
 
 
   }
