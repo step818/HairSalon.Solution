@@ -18,6 +18,11 @@ namespace HairSalon.Models
       // _stylist_id = stylist_id;
     }
 
+    public string GetClientName()
+    {
+      return _clientName;
+    }
+
     // public static void ClearAll()
     // {
     //   MySqlConnection conn = DB.Connection();
