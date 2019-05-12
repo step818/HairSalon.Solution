@@ -9,13 +9,13 @@ namespace HairSalon.Models
   {
     private string _clientName;
     private int _id;
-    // private int stylist_id;
+    private int _stylistId;
 
-    public Client (string clientName, int id)
+    public Client (string clientName, int stylistId, int id = 0)
     {
       _clientName = clientName;
       _id = id;
-      // _stylist_id = stylist_id;
+      _stylistId = stylistId;
     }
 
     public string GetClientName()
@@ -31,6 +31,11 @@ namespace HairSalon.Models
     public int GetId()
     {
       return _id;
+    }
+
+    public int GetStylistId()
+    {
+      return _stylistId;
     }
 
     // public static List<Client> GetAll()
