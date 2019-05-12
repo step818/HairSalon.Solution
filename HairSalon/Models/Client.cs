@@ -63,7 +63,22 @@ namespace HairSalon.Models
         return allClients;
     }
 
-  
+    public override bool Equals(System.Object otherClient)
+    {
+      if (!(otherClient is Client))
+      {
+        return false;
+      }
+      else
+      {
+        Client newClient = (Client) otherClient;
+        bool idEquality = this.GetId() == newClient.GetId();
+        bool nameEquality = this.GetClientName() == newClient.GetClientName();
+        bool stylistEquality = this.GetStylistId() == newClient.GetStylistId();
+        return (idEquality && nameEquality && stylistEquality);
+      }
+    }
+
 
 
     public static void ClearAll()
