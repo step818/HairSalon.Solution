@@ -4,7 +4,7 @@ using HairSalon.Models;
 using System.Collections.Generic;
 using System;
 
-namespace HairSalonTests
+namespace HairSalon.Tests
 {
 
   [TestClass]
@@ -16,10 +16,10 @@ namespace HairSalonTests
     //   Client.ClearAll();
     // }
     //
-    // public ClientTest()
-    // {
-    //   DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=stephen_trewick_test;";
-    // }
+    public ClientTest()
+    {
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=stephen_trewick;";
+    }
 
     [TestMethod]
     public void ClientConstructor_CreatesInstanceOfClient_Client()
@@ -82,16 +82,16 @@ namespace HairSalonTests
       Assert.AreEqual(stylistId, result);
     }
 
-    // [TestMethod]
-    // public void GetAll_ReturnsEmptyListFromDatabase_ClientList()
-    // {
-    //   //Arrange
-    //   List<Client> newList = new List<Client>{};
-    //   //Act
-    //   List<Client> result = Client.GetAll();
-    //   // Assert
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
+    [TestMethod]
+    public void GetAll_ReturnsEmptyListFromDatabase_ClientList()
+    {
+      //Arrange
+      List<Client> newList = new List<Client>{};
+      //Act
+      List<Client> result = Client.GetAll();
+      // Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
 
 
   }
