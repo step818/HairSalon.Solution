@@ -16,11 +16,15 @@ namespace HairSalon.Models
             _id = id;
         }
 
-        // public string GetStylistName()
-        // {
-        //     return _name;
-        // }
+        public string GetStylistName()
+        {
+            return _name;
+        }
 
+        public int GetId()
+        {
+            return _id;
+        }
 
     }
 
