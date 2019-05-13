@@ -12,7 +12,7 @@ namespace HairSalon.Tests
     [TestMethod]
     public void Index_ReturnsCorrectView_True()
     {
-      ClientController controller = new ClientController();
+      ClientsController controller = new ClientsController();
       ActionResult indexView = controller.Index();
       Assert.IsInstanceOfType(indexView, typeof(ViewResult));
     }
@@ -20,7 +20,7 @@ namespace HairSalon.Tests
     [TestMethod]
     public void Show_ReturnsCorrectView_True()
     {
-      ClientController controller = new ClientController();
+      ClientsController controller = new ClientsController();
       ActionResult indexView = controller.Show(1);
       Assert.IsInstanceOfType(indexView, typeof(ViewResult));
     }
@@ -28,10 +28,10 @@ namespace HairSalon.Tests
     [TestMethod]
     public void New_ReturnsCorrectView_True()
     {
-      ClientController controller = new ClientController();
+      ClientsController controller = new ClientsController();
       ActionResult indexView = controller.New(1);
       Assert.IsInstanceOfType(indexView, typeof(ViewResult));
     }
-    
+
   }
 }

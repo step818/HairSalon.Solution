@@ -5,7 +5,7 @@ using System;
 
 namespace HairSalon.Controllers
 {
-  public class ClientController : Controller
+  public class ClientsController : Controller
   {
     [HttpGet("/clients")]
     public ActionResult Index()
@@ -35,6 +35,6 @@ namespace HairSalon.Controllers
       myClient.Save();
       return View("Show", myClient);
     }
-    
+
   }
 }

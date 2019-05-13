@@ -5,7 +5,7 @@ using HairSalon.Models;
 
 namespace HairSalon.Controllers
 {
-  public class StylistController : Controller
+  public class StylistsController : Controller
   {
     [HttpGet("/stylists")]
     public ActionResult Index()
@@ -30,11 +30,9 @@ namespace HairSalon.Controllers
     [HttpPost("/stylists/create")]
     public ActionResult Create(string name)
     {
-      //Arrange
       Stylist myStylist = new Stylist(name);
-      //Act
       myStylist.Save();
-      //Assert
+      //List<Stylist> allStylists = Stylist.GetAll();
       return RedirectToAction("Index");
     }
 

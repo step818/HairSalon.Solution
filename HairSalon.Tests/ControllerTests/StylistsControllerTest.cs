@@ -7,13 +7,13 @@ using HairSalon.Models;
 namespace HairSalon.Tests
 {
   [TestClass]
-  public class StylistControllerTest
+  public class StylistsControllerTest
   {
     [TestMethod]
     public void Index_ReturnsCorrectView_True()
     {
       //Arrange
-      StylistController controller = new StylistController();
+      StylistsController controller = new StylistsController();
       //Act
       ActionResult indexView = controller.Index();
       //Assert
@@ -24,7 +24,7 @@ namespace HairSalon.Tests
     public void Index_HasCorrectModelType_StylistList()
     {
       //Arrange
-      StylistController controller = new StylistController();
+      StylistsController controller = new StylistsController();
       ViewResult indexView = controller.Index() as ViewResult;
       //Act
       var result = indexView.ViewData.Model;
@@ -36,7 +36,7 @@ namespace HairSalon.Tests
     public void Show_ReturnsCorrectView_True()
     {
       //Arrange
-      StylistController controller = new StylistController();
+      StylistsController controller = new StylistsController();
       //Act
       ActionResult indexView = controller.Show(1);
       //Assert
@@ -47,7 +47,7 @@ namespace HairSalon.Tests
     public void New_ReturnsCorrectView_True()
     {
       //Arrange
-      StylistController controller = new StylistController();
+      StylistsController controller = new StylistsController();
       //Act
       ActionResult indexView = controller.New();
       //Assert
