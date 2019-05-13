@@ -27,6 +27,16 @@ namespace HairSalon.Tests
     }
 
     [TestMethod]
+    public void Equals_ReturnsTrueIfNamesAreTheSame_Category()
+    {
+      //Arrange, Act
+      Stylist firstCategory = new Stylist("Household chores");
+      Stylist secondCategory = new Stylist("Household chores");
+      //Assert
+      Assert.AreEqual(firstCategory, secondCategory);
+    }
+
+    [TestMethod]
     public void GetStylistName_ReturnsName_String()
     {
       //Arrange
@@ -50,17 +60,17 @@ namespace HairSalon.Tests
       Assert.AreEqual(id, result);
     }
 
-    // [TestMethod]
-    // public void Save_SavesToDatabase_StylistList()
-    // {
-    //   //Arrange
-    //   Stylist testStylist = new Stylist("Dwight", 6);
-    //   //Act
-    //   testStylist.Save();
-    //   List<Stylist> result = Stylist.GetAll();
-    //   List<Stylist> testList = new List<Stylist>{testStylist};
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
+    [TestMethod]
+    public void Save_SavesToDatabase_StylistList()
+    {
+      //Arrange
+      Stylist testStylist = new Stylist("Buzz", 1);
+
+      //Act
+      testStylist.Save();
+      List<Stylist> result = Stylist.GetAll();
+      List<Stylist> testList = new List<Stylist>{testStylist};
+    }
+
   }
 }

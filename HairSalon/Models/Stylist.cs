@@ -16,6 +16,21 @@ namespace HairSalon.Models
         _id = id;
     }
 
+    public override bool Equals(System.Object otherCategory)
+    {
+       if (!(otherCategory is Stylist))
+       {
+         return false;
+       }
+       else
+       {
+         Stylist newCategory = (Stylist) otherCategory;
+         bool idEquality = this.GetId().Equals(newCategory.GetId());
+         bool nameEquality = this.GetStylistName().Equals(newCategory.GetStylistName());
+         return (idEquality && nameEquality);
+       }
+    }
+
     public override int GetHashCode()
     {
         return this.GetId().GetHashCode();
@@ -31,30 +46,25 @@ namespace HairSalon.Models
         return _id;
     }
 
+    public void Save()
+    {
+        MySqlConnection conn = DB.Connection();
+        conn.Open();
+        var cmd = conn.CreateCommand() as MySqlCommand;
+        cmd.CommandText = @"INSERT INTO stylists (stylist_name) VALUES (@stylist_name);";
+        MySqlParameter stylist_name = new MySqlParameter();
+        stylist_name.ParameterName = "@stylist_name";
+        stylist_name.Value = this._name;
+        cmd.Parameters.Add(stylist_name);
+        cmd.ExecuteNonQuery();
+        _id = (int) cmd.LastInsertedId;
+        conn.Close();
+        if (conn != null)
+        {
+            conn.Dispose();
+        }
 
-    //
-    // public void Save()
-    // {
-    //    MySqlConnection conn = DB.Connection();
-    //    conn.Open();
-    //    var cmd = conn.CreateCommand() as MySqlCommand;
-    //    cmd.CommandText = @"INSERT INTO stylists (id, stylist_name) VALUES (@id, @name);";
-    //    MySqlParameter name = new MySqlParameter();
-    //    name.ParameterName = "@name";
-    //    name.Value = this._name;
-    //    cmd.Parameters.Add(name);
-    //    MySqlParameter id = new MySqlParameter();
-    //    id.ParameterName = "@id";
-    //    id.Value = this._id;
-    //    cmd.Parameters.Add(id);
-    //    cmd.ExecuteNonQuery();
-    //    _id = (int) cmd.LastInsertedId;
-    //    conn.Close();
-    //    if (conn != null)
-    //    {
-    //        conn.Dispose();
-    //    }
-    // }
+    }
 
     public static List<Stylist> GetAll()
     {
