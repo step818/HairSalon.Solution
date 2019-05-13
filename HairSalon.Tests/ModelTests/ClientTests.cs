@@ -105,16 +105,14 @@ namespace HairSalon.Tests
     }
 
     [TestMethod]
-     public void Save_SavesToDatabase_ItemList()
+     public void Save_SavesToDatabase_ClientList()
      {
        //Arrange
        Client testClient = new Client("Curly", 1);
-
        //Act
        testClient.Save();
        List<Client> result = Client.GetAll();
        List<Client> testList = new List<Client>{testClient};
-
        //Assert
        CollectionAssert.AreEqual(testList, result);
      }
@@ -133,20 +131,17 @@ namespace HairSalon.Tests
       Assert.AreEqual(testId, result);
     }
 
-
-    // [TestMethod]
-    // public void Find_ReturnsCorrectItemFromDatabase_Item()
-    // {
-    //   //Arrange
-    //   Client testItem = new Client("Mow the lawn", 1);
-    //   testItem.Save();
-    //
-    //   //Act
-    //   Client foundItem = Client.Find(testItem.GetId());
-    //
-    //   //Assert
-    //   Assert.AreEqual(testItem, foundItem);
-    // }
+    [TestMethod]
+    public void Find_ReturnsCorrectClientFromDatabase_Client()
+    {
+      //Arrange
+      Client testClient = new Client("Moe", 1);
+      testClient.Save();
+      //Act
+      Client foundClient = Client.Find(testClient.GetId());
+      //Assert
+      Assert.AreEqual(testClient, foundClient);
+    }
 
 
   }
