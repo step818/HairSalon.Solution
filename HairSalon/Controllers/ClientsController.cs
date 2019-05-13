@@ -20,5 +20,21 @@ namespace HairSalon.Controllers
       Stylist myStylist = Stylist.Find(stylistId);
       return View(myStylist);
     }
+
+    [HttpGet("/stylists/{stylistId}/clients/{clientsId}")]
+    public ActionResult Show(int clientId)
+    {
+      Client myClient = Client.Find(clientId);
+      return View(myClient);
+    }
+
+    [HttpPost("/stylists/{stylistId}/clients/create")]
+    public ActionResult Create(string clientName, int stylistId)
+    {
+      Client myClient = new Client(clientName, stylistId);
+      myClient.Save();
+      return View("Show", myClient);
+    }
+    
   }
 }
