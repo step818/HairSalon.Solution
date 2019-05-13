@@ -1,0 +1,15 @@
+@using HairSalon.Models;
+
+<form action="/stylists/@Model.GetId()/clients/create" method="post">
+  <label for="stylist">Stylist: </label>
+  <select name="stylist">
+    @foreach(Stylist stylist in @Stylist.GetAll())
+    {
+      <option value="@stylist.GetId()" @if(Model.GetId() == stylist.GetId()){<text>selected</text>}>@stylist.GetStylistName()</option>
+    }
+  </select><br>
+  <label for="name">Client name:</label>
+  <input required id="name" name="name" type="text"><br>
+
+  <button type="submit">Save client</button>
+</form>
