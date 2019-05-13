@@ -98,15 +98,15 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO clients (cName, stylistId) VALUES (@client_name, @stylist_id);";
-      MySqlParameter cName = new MySqlParameter();
-      cName.ParameterName = "@client_name";
-      cName.Value = this._clientName;
-      cmd.Parameters.Add(cName);
-      MySqlParameter stylistId = new MySqlParameter();
-      stylistId.ParameterName = "@stylist_id";
-      stylistId.Value = this._stylistId;
-      cmd.Parameters.Add(stylistId);
+      cmd.CommandText = @"INSERT INTO clients (client_name, stylist_id) VALUES (@client_name, @stylist_id);";
+      MySqlParameter client_name = new MySqlParameter();
+      client_name.ParameterName = "@client_name";
+      client_name.Value = this._clientName;
+      cmd.Parameters.Add(client_name);
+      MySqlParameter stylist_id = new MySqlParameter();
+      stylist_id.ParameterName = "@stylist_id";
+      stylist_id.Value = this._stylistId;
+      cmd.Parameters.Add(stylist_id);
 
       cmd.ExecuteNonQuery();
       _id = (int) cmd.LastInsertedId;
