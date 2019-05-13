@@ -1,0 +1,26 @@
+@using HairSalon.Models;
+
+<h3>@Model.GetStylistName()</h3>
+
+<h4>Clients</h4>
+@if(Model.GetClients().Count == 0)
+{
+  <p>No clients have been added yet.</p>
+}
+@if(Model.GetClients().Count > 0)
+{
+  <ol>
+  @foreach(Client client in @Model.GetClients())
+  {
+     <li><a href="/stylists/@Model.GetId()/clients/@client.GetId()">@client.GetClientName()</a></li><br>
+  }
+  </ol>
+}
+<p>
+  <a href="/stylists/@Model.GetId()/clients/new">Add a new client</a>
+  <br>
+  <br>
+  <a href="/stylists">Return to stylist list</a>
+  <br>
+  <a href="/">Return to homepage</a>
+</p>
