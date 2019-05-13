@@ -5,13 +5,20 @@ using System;
 
 namespace HairSalon.Controllers
 {
-  public class ClientsController : Controller
+  public class ClientController : Controller
   {
+    [HttpGet("/clients")]
+    public ActionResult Index()
+    {
+      List<Stylist> allStylists = Stylist.GetAll();
+      return View(allStylists);
+    }
+
     [HttpGet("/stylists/{stylistId}/clients/new")]
     public ActionResult New(int stylistId)
     {
-      Stylist stylist = Stylist.Find(stylistId);
-      return View(stylist);
+      Stylist myStylist = Stylist.Find(stylistId);
+      return View(myStylist);
     }
   }
 }
