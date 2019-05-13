@@ -97,23 +97,58 @@ namespace HairSalon.Tests
     public void Equals_ReturnsTrueIfNamesAreTheSame_Client()
     {
       // Arrange, Act
-      Client firstClient = new Client("Dwight", 1);
-      Client secondClient = new Client("Dwight", 1);
+      Client firstClient = new Client("Keanu", 1);
+      Client secondClient = new Client("Keanu", 1);
 
       // Assert
       Assert.AreEqual(firstClient, secondClient);
     }
 
     // [TestMethod]
-    // public void FindId_ReturnClientById_Client()
+    //  public void Save_SavesToDatabase_ItemList()
+    //  {
+    //    //Arrange
+    //    Client testItem = new Client("Mow the lawn", 1);
+    //
+    //    //Act
+    //    testItem.Save();
+    //    List<Client> result = Client.GetAll();
+    //    List<Client> testList = new List<Client>{testItem};
+    //
+    //    //Assert
+    //    CollectionAssert.AreEqual(testList, result);
+    //  }
+
+    // [TestMethod]
+    // public void Save_AssignsIdToObject_Id()
     // {
-    //     //Arrange
-    //     Client newClient = new Client("Larry", 1);
-    //     //Act
-    //     newClient.Save();
-    //     Client foundClient = Client.FindId(newClient.GetId());
-    //     //Assert
-    //     Assert.AreEqual(newClient, foundClient);
+    //   //Arrange
+    //   Client testItem = new Client("Mow the lawn", 1);
+    //
+    //   //Act
+    //   testItem.Save();
+    //   Client savedItem = Client.GetAll()[0];
+    //
+    //   int result = savedItem.GetId();
+    //   int testId = testItem.GetId();
+    //
+    //   //Assert
+    //   Assert.AreEqual(testId, result);
+    // }
+
+
+    // [TestMethod]
+    // public void Find_ReturnsCorrectItemFromDatabase_Item()
+    // {
+    //   //Arrange
+    //   Client testItem = new Client("Mow the lawn", 1);
+    //   testItem.Save();
+    //
+    //   //Act
+    //   Client foundItem = Client.Find(testItem.GetId());
+    //
+    //   //Assert
+    //   Assert.AreEqual(testItem, foundItem);
     // }
 
 
