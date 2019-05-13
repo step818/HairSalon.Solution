@@ -103,16 +103,16 @@ namespace HairSalon.Models
          }
       }
 
-      public static Stylist Find(int searchId)
+      public static Stylist Find(int searchForThisId)
       {
         MySqlConnection conn = DB.Connection();
         conn.Open();
         var cmd = conn.CreateCommand() as MySqlCommand;
         cmd.CommandText = @"SELECT * FROM stylists WHERE id = @thisId;";
-        MySqlParameter thisId = new MySqlParameter();
-        thisId.ParameterName = "@thisId";
-        thisId.Value = searchId;
-        cmd.Parameters.Add(thisId);
+        MySqlParameter plugIdHere = new MySqlParameter();
+        plugIdHere.ParameterName = "@thisId";
+        plugIdHere.Value = searchForThisId;
+        cmd.Parameters.Add(plugIdHere);
         MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
         int id = 0;
         string stylist_name = "";
