@@ -1,6 +1,9 @@
-<form action="/stylists/create" method="post">
-  <label for="name">Stylist Name:</label>
-  <input required id="name" name="name" type="text">
-  <br>
-  <button type="submit">Save</button>
-</form>
+<h1>Stylists</h1>
+    <h2>You can add a new stylist here.</h2>
+    <form action="/stylists" method="post">
+      <input id="stylistName" name="stylistName" type="text">
+      <button type="submit">Add New Stylist</button>
+    </form>
+    <br>
+    <a href="/stylists">Back to stylists</a>
+    <a href="/">Back to homepage</a>

@@ -1,12 +1,36 @@
 @using HairSalon.Models;
 
-<h4>All Clients</h4>
-@if(Model.Count == 0)
-{
-  <p>There are no clients to display.</p>
-}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Hair Salon</title>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='~/css/styles.css' type="text/css">
+</head>
+<body>
+  <div class="container">
+    <h1>Hair Salon</h1>
+    <center><a href="/">Home</a> <a href="/stylists">View Stylists</a> </center>
+    <hr>
 
-@foreach (Client client in @Client.GetAll())
-{
-  <a href="/stylists/@Stylist.Find(@client.GetStylistId()).GetId()/clients/@client.GetId()">@client.GetClientName()</a><br>
-}
+    <br>
+    <ul>
+      @if (Model.Count == 0)
+      {
+        <p>You have no clients!</p>
+      }
+      @if(Model.Count != 0)
+      {
+        @foreach (Client client in Model)
+        {
+          <li><a href="/clients/@client.GetId()">@client.GetName()</a></li>
+        }
+      }
+    </ul>
+    <form action="/clients/delete" method="post">
+    <button type="submit" name="button">Clear all Items</button>
+    </form>
+  </div>
+</body>
+</html>
